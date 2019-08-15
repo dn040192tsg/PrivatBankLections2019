@@ -10,7 +10,7 @@ public class Main {
         Printer printer = new Printer("Printer");
         CardAcceptor cardAcceptor = new CardAcceptor("CardAcceptor");
         ATM atm = new ATM(cardAcceptor,printer);
-        atm.addCassette(cassette);
+        atm.addCassette(cassette) ;
 
     }
 }
