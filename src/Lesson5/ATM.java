@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ATM {
     CardAcceptor cardAcceptor = null;
     Printer printer = null;
-    ArrayList <Cassette> listCassette = null;
+    ArrayList <Cassette> listCassette = new ArrayList<>();
 
 
     public ATM(CardAcceptor cardAcceptor, Printer printer) {
