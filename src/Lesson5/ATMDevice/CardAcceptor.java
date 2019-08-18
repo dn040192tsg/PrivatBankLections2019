@@ -1,5 +1,7 @@
-package Lesson5;
-
+package Lesson5.ATMDevice;
+/**
+ * Клас описывающий работу картоприемника
+ */
 public class CardAcceptor {
     String name = null;
 

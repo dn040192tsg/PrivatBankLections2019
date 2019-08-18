@@ -1,23 +1,22 @@
-package Lesson5;
+package Lesson5.ATMDevice;
 
 import java.util.ArrayList;
 
+/**
+ * Клас описывающий банкомат
+ */
+
 public class ATM {
+
     CardAcceptor cardAcceptor = null;
     Printer printer = null;
-    ArrayList <Cassette> listCassette = new ArrayList<>();
+    Cassette cassette = null;
 
-
-    public ATM(CardAcceptor cardAcceptor, Printer printer) {
+    public ATM(CardAcceptor cardAcceptor, Printer printer, Cassette cassette) {
         this.cardAcceptor = cardAcceptor;
         this.printer = printer;
+        this.cassette = cassette;
     }
-
-
-    public void addCassette (Cassette cassette){
-        listCassette.add(cassette);
-    }
-
 
     public CardAcceptor getCardAcceptor() {
         return cardAcceptor;
@@ -35,11 +34,11 @@ public class ATM {
         this.printer = printer;
     }
 
-    public ArrayList<Cassette> getListCassette() {
-        return listCassette;
+    public Cassette getCassette() {
+        return cassette;
     }
 
-    public void setListCassette(ArrayList<Cassette> listCassette) {
-        this.listCassette = listCassette;
+    public void setCassette(Cassette cassette) {
+        this.cassette = cassette;
     }
 }
