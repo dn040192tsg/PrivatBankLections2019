@@ -6,7 +6,6 @@ import Lesson5.ATMDevice.Cassette;
 import Lesson5.ATMDevice.Printer;
 import Lesson5.Bills.Сurrencyy;
 
-import java.util.Currency;
 
 public class Main {
 
