@@ -6,6 +6,8 @@ import Lesson5.ATMDevice.Cassette;
 import Lesson5.ATMDevice.Printer;
 import Lesson5.Bills.Сurrencyy;
 
+import java.util.Currency;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,6 +21,7 @@ public class Main {
         ATM atm = new ATM(cardAcceptor,printer, cassette);
 
         System.out.println(atm);
+        System.out.println(cassette.getCurrencyList());
 
     }
 }

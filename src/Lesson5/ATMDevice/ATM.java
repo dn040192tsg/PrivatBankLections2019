@@ -14,8 +14,11 @@ public class ATM {
 
     public ATM(CardAcceptor cardAcceptor, Printer printer, Cassette cassette) {
         this.cardAcceptor = cardAcceptor;
+        System.out.println("Картоприемник добавлен в банкомат");
         this.printer = printer;
+        System.out.println("Принтер добавлен в банкомат");
         this.cassette = cassette;
+        System.out.println("Кассета добавлен в банкомат");
     }
 
     public CardAcceptor getCardAcceptor() {
@@ -40,5 +43,14 @@ public class ATM {
 
     public void setCassette(Cassette cassette) {
         this.cassette = cassette;
+    }
+
+    @Override
+    public String toString() {
+        return "ATM{" +
+                "cardAcceptor=" + cardAcceptor +
+                ", printer=" + printer +
+                ", cassette=" + cassette +
+                '}';
     }
 }

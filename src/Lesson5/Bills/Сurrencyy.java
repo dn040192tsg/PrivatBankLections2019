@@ -38,7 +38,8 @@ public class Сurrencyy {
 
             case "USD":
                 if (faceValue == "1" || faceValue == "2" || faceValue == "5" | faceValue == "10" || faceValue == "20" || faceValue == "50" || faceValue == "100") {
-                    System.out.println("Валюта добавлена " + faceValue + " " + abr);
+                    System.out.println("Валюта создана " + faceValue + " " + abr);
+                    this.faceValue = faceValue;
                 } else {
                     System.out.println("Ошибка валюта должна быть faceValue == \"1\" || faceValue == \"2\" || faceValue == \"5\" | faceValue == \"10\" || faceValue == \"20\" || faceValue == \"50\" || faceValue == \"100\"");
                     ;
@@ -48,8 +49,9 @@ public class Сurrencyy {
 
             case "UAH":
                 if (faceValue == "1" || faceValue == "2" || faceValue == "5" | faceValue == "10" || faceValue == "20" || faceValue == "50" || faceValue == "100" || faceValue == "200" || faceValue == "500") {
-                    System.out.println("Валюта добавлена " + faceValue + " " + abr);
+                    System.out.println("Валюта создана " + faceValue + " " + abr);
                 } else {
+                    this.faceValue = faceValue;
                     System.out.println("Ошибка валюта должна быть faceValue == \"1\" || faceValue == \"2\" || faceValue == \"5\" | faceValue == \"10\" || faceValue == \"20\" || faceValue == \"50\" || faceValue == \"100\" || faceValue == \"200\" || faceValue == \"500\"");
                 }
                 ;
@@ -57,7 +59,8 @@ public class Сurrencyy {
 
             case "EUR":
                 if (faceValue == "1" || faceValue == "2" || faceValue == "5" | faceValue == "10" || faceValue == "20" || faceValue == "50" || faceValue == "100" || faceValue == "200" || faceValue == "500") {
-                    System.out.println("Валюта добавлена " + faceValue + " " + abr);
+                    this.faceValue = faceValue;
+                    System.out.println("Валюта создана " + faceValue + " " + abr);
                 } else {
                     System.out.println("Ошибка валюта должна быть faceValue == \"1\" || faceValue == \"2\" || faceValue == \"5\" | faceValue == \"10\" || faceValue == \"20\" || faceValue == \"50\" || faceValue == \"100\" || faceValue == \"200\" || faceValue == \"500\"");
                 }
@@ -66,7 +69,8 @@ public class Сurrencyy {
 
             case "RUR":
                 if (faceValue == "1" || faceValue == "2" || faceValue == "5" | faceValue == "10" || faceValue == "20" || faceValue == "50" || faceValue == "100" || faceValue == "200" || faceValue == "500" || faceValue == "1000" || faceValue == "2000" || faceValue == "5000") {
-                    System.out.println("Валюта добавлена " + faceValue + " " + abr);
+                    this.faceValue = faceValue;
+                    System.out.println("Валюта создана " + faceValue + " " + abr);
                 } else {
                     System.out.println("Ошибка валюта должна быть faceValue == \"1\" || faceValue == \"2\" || faceValue == \"5\" | faceValue == \"10\" || faceValue == \"20\" || faceValue == \"50\" || faceValue == \"100\" || faceValue == \"200\" || faceValue == \"500\" || faceValue == \"1000\"|| faceValue == \"2000\"|| faceValue == \"5000\"");
                 }

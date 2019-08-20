@@ -14,9 +14,10 @@ public class Cassette {
     private String cassetName = null;
 
     public Cassette(Сurrencyy currency, int kassetSize, String cassetName) {
-        addCurrency(currency);
         this.kassetSize = kassetSize;
         this.cassetName = cassetName;
+        addCurrency(currency);
+
     }
 
     public String getCassetName() {
