@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Cassette {
 
-    private ArrayList<Сurrencyy> currencyList = null;
+    private ArrayList<Сurrencyy> currencyList = new ArrayList<>();
     private int kassetSize = 0;
     private String cassetName = null;
 
