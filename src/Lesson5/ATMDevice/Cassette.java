@@ -15,7 +15,7 @@ public class Cassette {
 
     public Cassette(Сurrencyy currency, int kassetSize, String cassetName) {
         addCurrency(currency);
-        this.kassetSize = kassetSize;
+         this.kassetSize = kassetSize;
         this.cassetName = cassetName;
     }
 
