@@ -1,4 +1,4 @@
-package Lesson5.Bills;
+package Lesson5.Currencys;
 
 /**
  * Клас описывающий свойство валюты

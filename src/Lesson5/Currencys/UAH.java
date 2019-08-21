@@ -1,6 +1,8 @@
-package Lesson5.Bills;
+package Lesson5.Currencys;
 
-public class UAH extends Currencyy{
+import Lesson5.Currencys.Currencyy;
+
+public class UAH extends Currencyy {
 
 
     public UAH(String typeCurrency, String faceValue, String abr) {

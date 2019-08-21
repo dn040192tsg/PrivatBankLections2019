@@ -7,7 +7,6 @@ public class PayPassCard extends Card {
 
 
 
-
     public PayPassCard(int cardNumber, PinCode pin, Date validity, Currency currency) {
         super(cardNumber, pin, validity, currency);
     }

@@ -1,6 +1,6 @@
 package Lesson5.ATMDevice;
 
-import Lesson5.Bills.Currencyy;
+import Lesson5.Currencys.Currencyy;
 import java.util.ArrayList;
 
 /**

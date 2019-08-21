@@ -4,8 +4,8 @@ import Lesson5.ATMDevice.ATM;
 import Lesson5.ATMDevice.CardAcceptor;
 import Lesson5.ATMDevice.Cassette;
 import Lesson5.ATMDevice.Printer;
-import Lesson5.Bills.Currencyy;
-import Lesson5.Bills.USD;
+import Lesson5.Currencys.Currencyy;
+import Lesson5.Currencys.USD;
 
 
 public class Main {

@@ -1,5 +1,7 @@
-package Lesson5.Bills;
+package Lesson5.Currencys;
 
+
+import Lesson5.Currencys.Currencyy;
 
 public class USD extends Currencyy {
 

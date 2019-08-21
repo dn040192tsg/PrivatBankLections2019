@@ -1,7 +1,7 @@
 package Lesson5.Actions;
 
 import Lesson5.ATMDevice.ATM;
-import Lesson5.Bills.Currencyy;
+import Lesson5.Currencys.Currencyy;
 
 
 public class OutMoney {
