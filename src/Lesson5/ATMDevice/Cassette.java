@@ -1,6 +1,6 @@
 package Lesson5.ATMDevice;
 
-import Lesson5.Bills.Сurrencyy;
+import Lesson5.Bills.Currencyy;
 import java.util.ArrayList;
 
 /**
@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 public class Cassette {
 
-    private ArrayList<Сurrencyy> currencyList = new ArrayList<>();
+    private ArrayList<Currencyy> currencyList = new ArrayList<>();
     private int kassetSize = 0;
     private String cassetName = null;
 
-    public Cassette(Сurrencyy currency, int kassetSize, String cassetName) {
+    public Cassette(Currencyy currency, int kassetSize, String cassetName) {
         this.kassetSize = kassetSize;
         this.cassetName = cassetName;
         addCurrency(currency);
@@ -28,7 +28,7 @@ public class Cassette {
         this.cassetName = cassetName;
     }
 
-    public void addCurrency (Сurrencyy currencyy){
+    public void addCurrency (Currencyy currencyy){
         if (kassetSize > currencyList.size()) {
             currencyList.add(currencyy);
             System.out.println("Валюта добавлена в касету");
@@ -38,7 +38,7 @@ public class Cassette {
         }
     }
 
-    public ArrayList<Сurrencyy> getCurrencyList() {
+    public ArrayList<Currencyy> getCurrencyList() {
         return currencyList;
     }
 

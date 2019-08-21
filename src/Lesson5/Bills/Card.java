@@ -8,11 +8,12 @@ import java.util.Date;
  * Класс описывающий свойство карты
  */
 
-public class Card {
-    private int cardNumber = 0; //номер каты
-    private PinCode pin = null; // пмн код
-    private Date validity = null; // срок действия
-    private Currency currency = null; // счет
+public  class Card {
+
+    private int cardNumber; //номер каты
+    private PinCode pin; // пмн код
+    private Date validity; // срок действия
+    private Currency currency; // счет
 
     public Card(int cardNumber, PinCode pin, Date validity, Currency currency) {
         setCardNumber(cardNumber);

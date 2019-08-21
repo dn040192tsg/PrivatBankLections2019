@@ -1,9 +1,7 @@
 package Lesson5.Actions;
 
 import Lesson5.ATMDevice.ATM;
-import Lesson5.Bills.Сurrencyy;
-
-import java.util.Currency;
+import Lesson5.Bills.Currencyy;
 
 
 public class OutMoney {
@@ -15,7 +13,7 @@ ATM atm = null;
     }
 
     public void sendMoney (){
-        for (Сurrencyy x : atm.getCassette().getCurrencyList()) {
+        for (Currencyy x : atm.getCassette().getCurrencyList()) {
 
         }
         atm.getCassette();
