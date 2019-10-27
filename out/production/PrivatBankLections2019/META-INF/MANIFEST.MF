@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: Lesson1.HomeWork
+Main-Class: ATM.Main
 
