@@ -1,4 +1,4 @@
-package ATM.Currencys.CurrencyEnum;
+package Currencys.CurrencyEnum;
 
 
 public  class TypesFaceValueEnumUAH {

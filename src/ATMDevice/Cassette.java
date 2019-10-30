@@ -1,9 +1,9 @@
-package ATM.ATMDevice;
+package ATMDevice;
 
-import ATM.Currencys.*;
-import ATM.Currencys.CurrencyEnum.CurencyAbrEnum;
-import ATM.Currencys.CurrencyEnum.TypesFaceValueEnumUAH;
-import ATM.Currencys.UAH;
+import Currencys.CurrencyEnum.CurencyAbrEnum;
+import Currencys.CurrencyEnum.TypesFaceValueEnumUAH;
+import Currencys.Currencyy;
+import Currencys.UAH;
 
 import java.util.*;
 

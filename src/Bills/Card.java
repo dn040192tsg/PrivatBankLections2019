@@ -1,6 +1,6 @@
-package ATM.Bills;
+package Bills;
 
-import ATM.Currencys.CurrencyEnum.CurencyAbrEnum;
+import Currencys.CurrencyEnum.CurencyAbrEnum;
 
 import java.io.Serializable;
 import java.util.Objects;

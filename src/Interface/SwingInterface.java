@@ -1,4 +1,4 @@
-package ATM.Interface;
+package Interface;
 
 
 import javax.swing.*;
@@ -68,6 +68,7 @@ public class SwingInterface extends JFrame {
         display = new JPanel();
         jTextArea = new JTextArea("", 20, 30);
         jTextArea.setLineWrap(true);
+        jTextArea.setEditable(false);
         display.add(jTextArea);
     }
 

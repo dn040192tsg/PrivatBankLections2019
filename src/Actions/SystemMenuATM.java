@@ -1,8 +1,8 @@
-package ATM.Actions;
+package Actions;
 
-import ATM.ATMDevice.*;
-import ATM.Currencys.CurrencyEnum.CurencyAbrEnum;
-import ATM.Interface.SwingInterface;
+import ATMDevice.*;
+import Currencys.CurrencyEnum.CurencyAbrEnum;
+import Interface.SwingInterface;
 
 import java.util.Objects;
 import java.util.logging.Logger;

@@ -1,4 +1,4 @@
-package ATM.Actions;
+package Actions;
 import java.io.IOException;
 
 /**

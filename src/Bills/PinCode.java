@@ -1,4 +1,4 @@
-package ATM.Bills;
+package Bills;
 
 import java.io.Serializable;
 import java.util.Objects;

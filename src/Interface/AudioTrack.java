@@ -1,4 +1,4 @@
-package ATM.Interface;
+package Interface;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -18,7 +18,7 @@ public class AudioTrack extends Thread {
     @Override
     public void run() {
         try {
-            soundFile = new File("tape.wav");
+            soundFile = new File(File.separator + "sound" + File.separator + "tape.wav");
             ais = AudioSystem.getAudioInputStream(soundFile);
             //ger Clip
             Clip clip = AudioSystem.getClip();

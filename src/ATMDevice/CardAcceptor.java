@@ -1,6 +1,6 @@
-package ATM.ATMDevice;
+package ATMDevice;
 
-import ATM.Bills.Card;
+import Bills.Card;
 
 /**
  * Class describer work card acceptor

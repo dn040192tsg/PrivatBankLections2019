@@ -1,6 +1,6 @@
-package ATM.Actions;
+package Actions;
 
-import ATM.ATMDevice.ATM;
+import ATMDevice.ATM;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -34,22 +34,22 @@ public class ControllerATM extends Thread {
     }
 
     /**
-     * This method controls the ATM and its menu decides on the launch of the ATM functions
+     * This method controls the ATM and its menu decides on the launch of the ATM functions chek balance, out money, exchenge retes
      */
     @Override
     public void run() {
 
-        atm.getDisplay().viewContent("=================================================================================\n" +
+        atm.getDisplay().viewContent("\n\n================================\n" +
                 "\n" +
                 "Welcome to the PrivatBank ATM. Insert the card into the card reader \n" +
                 "\n" +
-                "=================================================================================");
+                "================================");
 
         waitCard(); //wait until the user inserts a map
 
         while (atm.getCardAcceptor().getCard() != null && isInterrupted() == false) {
             try {
-                atm.getDisplay().viewContent("==================================================================================== \n " +
+                atm.getDisplay().viewContent("================================\n " +
                         "\n" +
                         "To check the card balance, enter  1  \n" +
                         "To withdraw money from the card, enter  2  \n" +
@@ -57,7 +57,7 @@ public class ControllerATM extends Thread {
                         "\n" +
                         "To end the job, enter  Return  \n" +
                         "\n" +
-                        "==================================================================================== \n " +
+                        "================================ \n " +
                         "Type a command and press Enter:"
                 );
                 //menu button handling
@@ -101,10 +101,10 @@ public class ControllerATM extends Thread {
      */
     public void checkBalanceMenu() throws NullPointerException, IllegalArgumentException, InterruptedException {
 
-        atm.getDisplay().viewContent(actionsMenuATM.checkBalance() + " \n To return to the main menu, enter return\n");
+        atm.getDisplay().viewContent(actionsMenuATM.checkBalance() + "\n \n To return to the main menu, enter return\n\n");
 
         while (!atm.getKeyboard().readInput().equals("Return")) {
-            atm.getDisplay().viewContent("To return to the main menu, enter return\n");
+            atm.getDisplay().viewContent("\nTo return to the main menu, enter return\n");
         }
 
 
@@ -178,7 +178,7 @@ public class ControllerATM extends Thread {
     }
 
     /**
-     * This method wait for user inssert card
+     * This method wait for user insert card
      */
     public void waitCard() {
 

@@ -1,14 +1,11 @@
-package ATM;
-
-
-import ATM.Actions.SystemMenuATM;
-import ATM.Bills.Card;
-import ATM.Bills.MagnitCardPrivatBank;
-import ATM.Bills.PinCode;
-import ATM.Currencys.CurrencyEnum.CurencyAbrEnum;
-import ATM.Currencys.CurrencyEnum.TypesCurencyEnum;
-import ATM.Currencys.CurrencyEnum.TypesFaceValueEnumUAH;
-import ATM.Currencys.UAH;
+import Actions.SystemMenuATM;
+import Bills.Card;
+import Bills.MagnitCardPrivatBank;
+import Bills.PinCode;
+import Currencys.CurrencyEnum.CurencyAbrEnum;
+import Currencys.CurrencyEnum.TypesCurencyEnum;
+import Currencys.CurrencyEnum.TypesFaceValueEnumUAH;
+import Currencys.UAH;
 
 import java.io.*;
 import java.util.logging.LogManager;
@@ -43,7 +40,7 @@ public class Main {
 
 
     /**
-     *
+     * dd money in cassette ATM
      * @param sysMenu
      */
     public static void addMoneyInCassette(SystemMenuATM sysMenu) {

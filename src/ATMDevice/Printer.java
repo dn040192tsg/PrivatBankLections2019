@@ -1,4 +1,4 @@
-package ATM.ATMDevice;
+package ATMDevice;
 
 import java.util.Objects;
 

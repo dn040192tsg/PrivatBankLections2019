@@ -1,6 +1,6 @@
-package ATM.Bills;
+package Bills;
 
-import ATM.Currencys.CurrencyEnum.CurencyAbrEnum;
+import Currencys.CurrencyEnum.CurencyAbrEnum;
 
 /**
  * Class magnit card extends Card

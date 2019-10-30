@@ -1,5 +1,5 @@
-package ATM.ATMDevice;
-import ATM.Interface.SwingInterface;
+package ATMDevice;
+import Interface.SwingInterface;
 
 /**
  * Class view content on display ATM

@@ -1,6 +1,6 @@
-package ATM.ATMDevice;
+package ATMDevice;
 
-import ATM.Interface.SwingInterface;
+import Interface.SwingInterface;
 
 import java.util.Objects;
 

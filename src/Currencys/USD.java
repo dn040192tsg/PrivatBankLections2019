@@ -1,9 +1,9 @@
-package ATM.Currencys;
+package Currencys;
 
 
-import ATM.Currencys.CurrencyEnum.CurencyAbrEnum;
-import ATM.Currencys.CurrencyEnum.TypesCurencyEnum;
-import ATM.Currencys.CurrencyEnum.TypesFaceValueEnumUSD;
+import Currencys.CurrencyEnum.CurencyAbrEnum;
+import Currencys.CurrencyEnum.TypesCurencyEnum;
+import Currencys.CurrencyEnum.TypesFaceValueEnumUSD;
 
 /**
  * Class USD

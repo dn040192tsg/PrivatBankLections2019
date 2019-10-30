@@ -1,7 +1,7 @@
-package ATM.Currencys;
+package Currencys;
 
-import ATM.Currencys.CurrencyEnum.CurencyAbrEnum;
-import ATM.Currencys.CurrencyEnum.TypesCurencyEnum;
+import Currencys.CurrencyEnum.CurencyAbrEnum;
+import Currencys.CurrencyEnum.TypesCurencyEnum;
 
 import java.io.Serializable;
 import java.util.Objects;

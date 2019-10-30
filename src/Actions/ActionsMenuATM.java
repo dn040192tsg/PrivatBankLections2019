@@ -1,7 +1,7 @@
-package ATM.Actions;
+package Actions;
 
-import ATM.ATMDevice.ATM;
-import ATM.Bills.Card;
+import ATMDevice.ATM;
+import Bills.Card;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
