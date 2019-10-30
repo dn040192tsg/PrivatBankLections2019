@@ -141,7 +141,7 @@ public class SwingInterface extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            new AudioTrack().start();
+          //  new AudioTrack().start();
 
             switch (e.getActionCommand()) {
                 case "Enter":

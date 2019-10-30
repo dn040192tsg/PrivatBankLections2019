@@ -3,6 +3,7 @@ package Actions;
 import ATMDevice.ATM;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.logging.Level;
 
 /**
  * This class is a separate stream and controls all the functions of the menu and devices of the ATM
@@ -80,15 +81,15 @@ public class ControllerATM extends Thread {
 
                 }
             } catch (NullPointerException e) {
-                SystemMenuATM.log.warning(e.getMessage());
+                SystemMenuATM.log.log(Level.WARNING,e.getMessage(), e.getStackTrace());
             } catch (IllegalArgumentException e) {
-                SystemMenuATM.log.warning(e.getMessage());
+                SystemMenuATM.log.log(Level.WARNING,e.getMessage(), e.getStackTrace());
             } catch (MalformedURLException e) {
-                SystemMenuATM.log.warning(e.getMessage());
+                SystemMenuATM.log.log(Level.WARNING,e.getMessage(), e.getStackTrace());
             } catch (IOException e) {
-                SystemMenuATM.log.warning(e.getMessage());
+                SystemMenuATM.log.log(Level.WARNING,e.getMessage(), e.getStackTrace());
             } catch (InterruptedException e) {
-                SystemMenuATM.log.warning(e.getMessage());
+                SystemMenuATM.log.log(Level.WARNING,e.getMessage(), e.getStackTrace());
             }
         }
     }

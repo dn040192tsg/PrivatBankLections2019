@@ -18,7 +18,7 @@ public class AudioTrack extends Thread {
     @Override
     public void run() {
         try {
-            soundFile = new File(File.separator + "sound" + File.separator + "tape.wav");
+            soundFile = new File("tape.wav");
             ais = AudioSystem.getAudioInputStream(soundFile);
             //ger Clip
             Clip clip = AudioSystem.getClip();
