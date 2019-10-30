@@ -4,37 +4,38 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Class for audio stream ATM
+ */
 public class AudioTrack extends Thread {
 
+    File soundFile = null; //audio
+    AudioInputStream ais = null;
+
+    /**
+     * replay audio for press key
+     */
     @Override
     public void run() {
         try {
-            File soundFile = new File("gameOfTrones.wav"); //Звуковой файл
-
-            //Получаем AudioInputStream
-            //Вот тут могут полететь IOException и UnsupportedAudioFileException
-            AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
-
-            //Получаем реализацию интерфейса Clip
-            //Может выкинуть LineUnavailableException
+            soundFile = new File("tape.wav");
+            ais = AudioSystem.getAudioInputStream(soundFile);
+            //ger Clip
             Clip clip = AudioSystem.getClip();
-
-            //Загружаем наш звуковой поток в Clip
-            //Может выкинуть IOException и LineUnavailableException
+            //download sound thread Clip
             clip.open(ais);
+            clip.setFramePosition(0); // install start
+            clip.start(); //go!!!
 
-            clip.setFramePosition(0); //устанавливаем указатель на старт
-            clip.start(); //Поехали!!!
-
-            //Если не запущено других потоков, то стоит подождать, пока клип не закончится
-            //В GUI-приложениях следующие 3 строчки не понадобятся
-            Thread.sleep(clip.getMicrosecondLength()/1000);
-            clip.stop(); //Останавливаем
-            clip.close(); //Закрываем
         } catch (IOException | UnsupportedAudioFileException | LineUnavailableException exc) {
             exc.printStackTrace();
-        } catch (InterruptedException exc) {}
-
+        }finally {
+            try {
+                ais.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 }

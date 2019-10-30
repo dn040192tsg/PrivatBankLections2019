@@ -6,15 +6,35 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Class swing interface for ATM
+ */
 public class SwingInterface extends JFrame {
-
+    /**
+     * Panel for button
+     */
     private JPanel buttons = null;
+    /**
+     * Panel for display
+     */
     private JPanel display = null;
+    /**
+     * Panel for other device ATM
+     */
     private JPanel ATM = null;
+    /**
+     * Field with display
+     */
     private JTextArea jTextArea;
+    /**
+     * Buffer for class keyboard
+     */
     private String readBuffer;
 
-
+    /**
+     * Constructor create options and elements swing interface
+     * @throws HeadlessException
+     */
     public SwingInterface() throws HeadlessException {
         super("ATM");
         setBounds(100, 100, 1000, 800);
@@ -29,6 +49,9 @@ public class SwingInterface extends JFrame {
 
     }
 
+    /**
+     * Create panel for ATM and add ATM device
+     */
     private void createATM() {
         ATM = new JPanel();
         ATM.setLayout(new GridLayout(2, 1, 5, 10));
@@ -38,6 +61,9 @@ public class SwingInterface extends JFrame {
 
     }
 
+    /**
+     * Create field for Display
+     */
     private void createNextArea() {
         display = new JPanel();
         jTextArea = new JTextArea("", 20, 30);
@@ -45,7 +71,9 @@ public class SwingInterface extends JFrame {
         display.add(jTextArea);
     }
 
-
+    /**
+     * Create button ATM
+     */
     private void createButton() {
 
         buttons = new JPanel();
@@ -71,6 +99,10 @@ public class SwingInterface extends JFrame {
         buttons.add(buttonCorrect);
     }
 
+    /**
+     * Method view content on display
+     * @param content
+     */
     public void viewDisplay(String content) {
         jTextArea.setText("");
         jTextArea.setText(content);
@@ -80,22 +112,35 @@ public class SwingInterface extends JFrame {
 //        jTextArea.setText(content);
 //    }
 
+    /**
+     * Return readBuffer value and install value null
+     * @return readBuffer
+     */
     public String getReadBuffer() {
         String request = readBuffer;
         readBuffer = null;
         return request;
     }
 
+    /**
+     * Set new value readBuffer
+     * @param readBuffer
+     */
     private void setReadBuffer(String readBuffer) {
         this.readBuffer = readBuffer;
     }
 
-
+    /**
+     * Class listener for button ATM
+     *
+     */
     class ButtonEventLisstener implements ActionListener {
         String pushButtotn = "";
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
+            new AudioTrack().start();
 
             switch (e.getActionCommand()) {
                 case "Enter":

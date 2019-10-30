@@ -7,36 +7,67 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Клас описывающий свойство валюты
+ * Class describes currency method and field
  */
-
 public  abstract class Currencyy implements Comparable <Currencyy>, Serializable {
 
-    private TypesCurencyEnum typeCurrency;  // тип валюты
-    private int faceValue;     // номинал валюты
-    private CurencyAbrEnum abr;           // абривиатура валюты
+    /**
+     * Enum HRIVNA or DOLLAR
+     */
+    private TypesCurencyEnum typeCurrency;
+    /**
+     *  Nominal
+     */
+    private int faceValue;
+    /**
+     * Enunm UAH or USD
+     */
+    private CurencyAbrEnum abr;
+    /**
+     * For serilization
+     */
     private static final long serialVersionUID = 1L;
 
-
+    /**
+     * Constructor
+     * @param typeCurrency
+     * @param faceValue
+     * @param abr
+     */
     public Currencyy(TypesCurencyEnum typeCurrency, int faceValue, CurencyAbrEnum abr) {
         this.typeCurrency = typeCurrency;
         this.faceValue = faceValue;
         this.abr = abr;
     }
 
+    /**
+     * Return abr
+     * @return abr
+     */
     public CurencyAbrEnum getAbr() {
         return abr;
     }
 
+    /**
+     * Return faceValue
+     * @return
+     */
     public int getFaceValue() {
         return faceValue;
     }
 
+    /**
+     * Return TypesCurencyEnum
+     * @return
+     */
     public TypesCurencyEnum getTypeCurrency() {
         return typeCurrency;
     }
 
-
+    /**
+     * toString
+     * @return
+     */
     @Override
     public String toString() {
         return "Currencyy{" +
@@ -46,6 +77,11 @@ public  abstract class Currencyy implements Comparable <Currencyy>, Serializable
                 '}';
     }
 
+    /**
+     * equals
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,11 +92,20 @@ public  abstract class Currencyy implements Comparable <Currencyy>, Serializable
                 Objects.equals(getAbr(), currencyy.getAbr());
     }
 
+    /**
+     * hashCode
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(typeCurrency, getFaceValue(), getAbr());
     }
 
+    /**
+     * compareTo
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Currencyy o) {
 

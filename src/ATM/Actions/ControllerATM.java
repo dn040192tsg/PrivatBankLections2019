@@ -1,45 +1,66 @@
 package ATM.Actions;
 
 import ATM.ATMDevice.ATM;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 
+/**
+ * This class is a separate stream and controls all the functions of the menu and devices of the ATM
+ */
 public class ControllerATM extends Thread {
-
+    /**
+     * Param link object class ATM
+     *
+     * @see ATM
+     */
     ATM atm = null;
+    /**
+     * Param link object class ATM
+     *
+     * @see ActionsMenuATM
+     */
     ActionsMenuATM actionsMenuATM = null;
 
+    /**
+     * Constructor class ControllerATM. This class extends Thread
+     *
+     * @param name Name this thread
+     * @param atm  Param link object class ATM
+     */
     public ControllerATM(String name, ATM atm) {
         super(name);
         this.atm = atm;
         actionsMenuATM = new ActionsMenuATM(atm);
     }
 
-
+    /**
+     * This method controls the ATM and its menu decides on the launch of the ATM functions
+     */
     @Override
     public void run() {
 
         atm.getDisplay().viewContent("=================================================================================\n" +
                 "\n" +
-                "Добро пожаловать в банкомат ПриватБанка. Вставьте карту в картоприемник\n" +
+                "Welcome to the PrivatBank ATM. Insert the card into the card reader \n" +
                 "\n" +
                 "=================================================================================");
 
-        waitCard();
+        waitCard(); //wait until the user inserts a map
 
         while (atm.getCardAcceptor().getCard() != null && isInterrupted() == false) {
             try {
-                atm.getDisplay().viewContent("=================================================================================\n" +
+                atm.getDisplay().viewContent("==================================================================================== \n " +
                         "\n" +
-                        "Что-бы проверить баланс карты введите \"1\"\n" +
-                        "Что-бы снять деньги с карты введите \"2\"\n" +
-                        "Что-бы узнать курс валют введите \"3\"\n" +
+                        "To check the card balance, enter  1  \n" +
+                        "To withdraw money from the card, enter  2  \n" +
+                        "To find out the exchange rate, enter  3  \n" +
                         "\n" +
-                        "Чтобы завршить работу введите \"Return\"\n" +
+                        "To end the job, enter  Return  \n" +
                         "\n" +
-                        "=================================================================================\n" +
-                        "Введите команду и нажмите Enter:");
+                        "==================================================================================== \n " +
+                        "Type a command and press Enter:"
+                );
+                //menu button handling
 
                 switch (atm.getKeyboard().readInput()) {
                     case "1":
@@ -55,52 +76,67 @@ public class ControllerATM extends Thread {
                         atm.getCardAcceptor().pushCard();
                         break;
                     default:
-                        atm.getDisplay().viewContent("В банкомате нет такой команды");
+                        atm.getDisplay().viewContent("There is no such command at the ATM\n");
 
                 }
             } catch (NullPointerException e) {
-                e.printStackTrace();
+                SystemMenuATM.log.warning(e.getMessage());
             } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            } catch (
-                    MalformedURLException e) {
-                e.printStackTrace();
-            } catch (
-                    IOException e) {
-                e.printStackTrace();
+                SystemMenuATM.log.warning(e.getMessage());
+            } catch (MalformedURLException e) {
+                SystemMenuATM.log.warning(e.getMessage());
+            } catch (IOException e) {
+                SystemMenuATM.log.warning(e.getMessage());
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                SystemMenuATM.log.warning(e.getMessage());
             }
         }
     }
 
+    /**
+     * This method controls the ATM function check balance
+     * @throws NullPointerException
+     * @throws IllegalArgumentException
+     * @throws InterruptedException
+     */
     public void checkBalanceMenu() throws NullPointerException, IllegalArgumentException, InterruptedException {
 
-        atm.getDisplay().viewContent(actionsMenuATM.checkBalance() + " \n Для возврата в главное меню введите return");
+        atm.getDisplay().viewContent(actionsMenuATM.checkBalance() + " \n To return to the main menu, enter return\n");
 
         while (!atm.getKeyboard().readInput().equals("Return")) {
-            atm.getDisplay().viewContent("Для возврата в главное меню введите return");
+            atm.getDisplay().viewContent("To return to the main menu, enter return\n");
         }
 
 
     }
 
+    /**
+     * This method controls the ATM function exchenge rates
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public void exchengeRatesMenu() throws IOException, InterruptedException {
 
-        atm.getDisplay().viewContent(actionsMenuATM.ExchengeRates() + " \n Для возврата в главное меню введите return");
+        atm.getDisplay().viewContent(actionsMenuATM.ExchengeRates() + " \n To return to the main menu, enter return\n");
 
         while (!atm.getKeyboard().readInput().equals("Return")) {
-            atm.getDisplay().viewContent("Для возврата в главное меню введите return");
+            atm.getDisplay().viewContent("To return to the main menu, enter return\n");
         }
 
     }
 
+    /**
+     * This method controls the ATM function out money
+     * @throws NullPointerException
+     * @throws IllegalArgumentException
+     * @throws InterruptedException
+     */
     public void outMoneyMenu() throws NullPointerException, IllegalArgumentException, InterruptedException {
 
         if (atm.getCassette().affordableCash() != 0) {
 
-            atm.getDisplay().viewContent("Доступные купюры для снятия - " + atm.getCassette().sumCurrency() +
-                    "\n Введите сумму для снятия и нажмите Enter или Return для возврата в главное меню");
+            atm.getDisplay().viewContent("Available withdrawals - " + atm.getCassette().sumCurrency() +
+                    "Enter the amount to withdraw and press Enter or Return to return to the main menu.");
 
             String comand = "return";
 
@@ -111,36 +147,39 @@ public class ControllerATM extends Thread {
                         if (atm.getCassette().affordableCash() > sumPush) {
                             if (atm.getCassette().availableCurrency(sumPush)) {
                                 String result = actionsMenuATM.outMoney(sumPush);
-                                atm.getDisplay().viewContent("Получите деньги - " + sumPush + " " + atm.getCassette().getCassetCuerrency() + "\n" + result +
-                                        "\n Для возврата в главное меню введите Return");
+                                atm.getDisplay().viewContent("Get the money - " + sumPush + " " + atm.getCassette().getCassetCuerrency() + "\n" + result +
+                                        "\n To return to the main menu, enter Return");
                                 while (!atm.getKeyboard().readInput().equals("Return")) {
-                                    atm.getDisplay().viewContent("Для возврата в главное меню введите return");
+                                    atm.getDisplay().viewContent("To return to the main menu, enter Return");
                                 }
                                 break;
                             } else {
-                                atm.getDisplay().viewContent("Доступные купюры для снятия - " + atm.getCassette().sumCurrency() +
-                                        "\n Введите сумму для снятия кратную " + atm.getCassette().sumCurrency() + " \n или return для возврата в главное меню");
+                                atm.getDisplay().viewContent("Available withdrawals - " + atm.getCassette().sumCurrency() +
+                                        "\n Enter the amount to withdraw multiple " + atm.getCassette().sumCurrency() + " or return to return to the main menu");
                             }
                         } else {
-                            atm.getDisplay().viewContent("В банкомате недостаточно средств, доступная сумма " + atm.getCassette().affordableCash()
-                                    + " \n Введите сумму для снятия или return для возврата в главное меню");
+                            atm.getDisplay().viewContent("There are not enough funds at the ATM, available amount " + atm.getCassette().affordableCash()
+                                    + " \n Enter the amount to withdraw or return to return to the main menu");
                         }
                     } else {
-                        atm.getDisplay().viewContent("На карте недостаточно средств, баланс карты - " + atm.getCardAcceptor().getCard().getBalance() +
-                                " \n Введите сумму для снятия или return для возврата в главное меню");
+                        atm.getDisplay().viewContent("There are not enough funds on the card, card balance - " + atm.getCardAcceptor().getCard().getBalance() +
+                                " \n Enter the amount to withdraw or return to return to the main menu");
                     }
 
                 } else {
-                    atm.getDisplay().viewContent("В банкомате нет такой команды" + " Доступные купюры для снятия - " +
-                            atm.getCassette().sumCurrency() + "\n Введите сумму для снятия или return для возврата в главное меню");
+                    atm.getDisplay().viewContent("There is no such command at the ATM" + " Available withdrawals - " +
+                            atm.getCassette().sumCurrency() + "\n Enter the amount to withdraw or return to return to the main menu");
 
                 }
             }
         } else {
-            atm.getDisplay().viewContent("В банкомате недостаточно средств, доступная сумма " + atm.getCassette().affordableCash());
+            atm.getDisplay().viewContent("Error pin card code must be 4 digits " + atm.getCassette().affordableCash());
         }
     }
 
+    /**
+     * This method wait for user inssert card
+     */
     public void waitCard() {
 
         while (atm.getCardAcceptor().getCard() == null) {

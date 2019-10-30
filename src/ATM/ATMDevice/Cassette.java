@@ -8,18 +8,35 @@ import ATM.Currencys.UAH;
 import java.util.*;
 
 /**
- * Клас описывающий касету банкомата
+ * Class describes work cassette ATM. Casetta contains notes and participates in the issuance of money.
  */
-
 public class Cassette {
-
+    /**
+     * Collections Currencyy where cassette money is stored
+     */
     private Map<Currencyy, Integer> currencyList = new HashMap();
-
+    /**
+     * max count currency in Cassette
+     */
     private final int kassetSize = 100;
+    /**
+     * name device
+     */
     private String cassetName = null;
+    /**
+     * Enum UAH, USD
+     */
     private CurencyAbrEnum cassetCuerrency;
+    /**
+     * Enum face value currency
+     */
     private Integer[] typesFaceValue;
 
+    /**
+     * Constructor initializes field class
+     * @param cassetName
+     * @param cassetCuerrency
+     */
     public Cassette(String cassetName, CurencyAbrEnum cassetCuerrency) {
         this.cassetName = cassetName;
         this.cassetCuerrency = cassetCuerrency;
@@ -27,8 +44,10 @@ public class Cassette {
 
     }
 
+    /**
+     * Method add all type face value currency for UAH
+     */
     public void setTypesFaceValue() {
-
         for (int i = 0; i < CurencyAbrEnum.values().length; i++) {
             if (cassetCuerrency == CurencyAbrEnum.values()[i]) {
                 this.typesFaceValue = TypesFaceValueEnumUAH.values();
@@ -37,6 +56,10 @@ public class Cassette {
 
     }
 
+    /**
+     * lavailable withdrawal bills
+     * @return String withdrawal bills
+     */
     public String sumCurrency() {
 
         String responce = "";
@@ -47,6 +70,11 @@ public class Cassette {
         return responce;
     }
 
+    /**
+     * Method return true or false, cheks if it is possible to withdraw the amount at the ATM indicated by the user
+     * @param sum Amount requested by user for withdrawal
+     * @return true or false
+     */
     public boolean availableCurrency(int sum) {
 
         int debetSum = sum;
@@ -76,6 +104,12 @@ public class Cassette {
         }
     }
 
+
+    /**
+     * Method removes from the cassette the amount that the user entered to withdraw and return what banknotes was the amount withdrawn
+     * @param sum
+     * @return
+     */
     public String debitCassete(int sum) {
 
         String result = "";
@@ -93,11 +127,11 @@ public class Cassette {
                         if (t.getValue() >= coefficient) {
                             t.setValue(t.getValue() - coefficient);
                             debetSum -= typesFaceValue[i] * coefficient;
-                            result += coefficient + " по " + typesFaceValue[i] + " " + t.getKey().getAbr();
+                            result += coefficient + " - " + typesFaceValue[i] + " " + t.getKey().getAbr();
                         } else {
                             debetSum -= typesFaceValue[i] * t.getValue();
                             currencyList.remove(t);
-                            result += t.getValue() + " по " + typesFaceValue[i] + " " + t.getKey().getAbr();
+                            result += t.getValue() + " - " + typesFaceValue[i] + " " + t.getKey().getAbr();
                         }
                     }
                 }
@@ -106,7 +140,10 @@ public class Cassette {
 
         return result;
     }
-
+    /**
+     * Method return how all money in cassette
+     * @return all money in cassette
+     */
     public int affordableCash() {
         int sum = 0;
         for (Map.Entry<Currencyy, Integer> x : currencyList.entrySet()) {
@@ -115,26 +152,43 @@ public class Cassette {
         return sum;
     }
 
-    public int minCurrency() {
-        return Collections.min(currencyList.keySet()).getFaceValue();
-    }
-
+    /**
+     * Standart getter
+     * @return cassetName
+     */
     public String getCassetName() {
         return cassetName;
     }
-
+    /**
+     * Standart setter
+     * @param  cassetName
+     */
     public void setCassetName(String cassetName) {
         this.cassetName = cassetName;
     }
 
+    /**
+     * Method add Currency in currencyList
+     * @param currencyy
+     * @param col
+     */
     public void addCurrency(UAH currencyy, int col) {
         currencyList.put(currencyy, col);
     }
 
+    /**
+     * Standart getter
+     * @see Cassette#cassetCuerrency
+     * @return link
+     */
     public CurencyAbrEnum getCassetCuerrency() {
         return cassetCuerrency;
     }
 
+    /**
+     * Standart toString
+     * @return String
+     */
     @Override
     public String toString() {
         return "Cassette{" +
